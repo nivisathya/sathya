@@ -1,6 +1,6 @@
 from django.http import HttpResponse
-
+import os
 
 def index(request):
-    file = open('/home/nivedhita/sathya/chatbot/sathya/chatPage.html','r')
+    file = open(os.getcwd()+'/sathya/chatPage.html','r')
     return HttpResponse(file.read())
