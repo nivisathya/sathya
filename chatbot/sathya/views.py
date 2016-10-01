@@ -2,4 +2,5 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+    file = open('/home/nivedhita/sathya/chatbot/sathya/chatPage.html','r')
+    return HttpResponse(file.read())
