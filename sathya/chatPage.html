@@ -3,6 +3,25 @@
   <Title>
   Ask Sathya anything
   </Title>
+  <script type="text/javascript" src="../static/js/jquery-3.1.1.min.js"></script>
+  <script>
+	$(document).ready( function () {
+		$("#ask").click( talkToServer() );
+		$("#query").keydown( function(e) {if(e.which == 13) { talkToServer();}});
+	});
+	function talkToServer() {
+		var query = $("#query").val();
+		if(!query) { return; }
+		$.ajax("ask", {
+			data : {"q" : query},
+			async : false,
+			success : function(data) {
+				$("#convo").append(data);
+				$("#query").val("");
+			}
+	});
+	}
+  </script>
  </head>
  <body>
  	<div style="margin-bottom:20px;height:90%">
@@ -10,13 +29,13 @@
  		</div>
  	
  		<div style="margin-left:70%">
- 			<img src="/home/nivedhita/sathya/chatbot/sathya/description.png" style="width:500px;height:500px" /> 
+ 			<img src="../static/img/description.png" style="width:500px;height:500px" /> 
  		</div>
  	</div>
  	
  	<div style="height:10%">
  		<input type="text" style="width:70%;height:50%" id="query" autofocus>
- 		<input type="button" style="width:29%;height:50%;background-color:#4CAF50;border-radius:10px" value="Ask">
+ 		<input id="ask" type="button" style="width:29%;height:50%;background-color:#4CAF50;border-radius:10px" value="Ask">
   	</div> 
  </body>
 </html>
