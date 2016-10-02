@@ -12,11 +12,13 @@
 	function talkToServer() {
 		var query = $("#query").val();
 		if(!query) { return; }
+		$("#convo").append("<p> " + query + " <br><br> Working on it... </p>");
 		$.ajax("ask", {
 			data : {"q" : query},
 			async : false,
 			success : function(data) {
 				$("#convo").append("<p>"+data+"</p>");
+				$("#convo").scrollTop($("#convo")[0].scrollHeight);
 				$("#query").val("");
 			}
 	});
