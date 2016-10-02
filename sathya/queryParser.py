@@ -54,7 +54,6 @@ def processLanguage(query):
 	chunker = nltk.RegexpParser(grammar)
         tokenized = nltk.word_tokenize(query)
         tagged = nltk.pos_tag(tokenized)
-	print tagged
 	tree = chunker.parse(tagged)
    	terms = get_terms(tree)
 
