@@ -3,6 +3,8 @@ import re
 import time
 from nltk.tree import Tree
 
+'''
+#Sample test cases
 exampleArray = ['The incredibly intimidating NLP scares people away who are sissies.']
 
 
@@ -13,13 +15,14 @@ contentArray = ['What can you tell me about India?',
 		'What is the currency of U.S.A',
 		'Who is president of China',
 		'what is the area of a triangle']
+'''
 
 grammar = r"""
     	NBAR:
         	{<NN.*|JJ>*<NN.*>}  # Nouns and Adjectives, terminated with Nouns        
     	NP:
-        	{<NBAR>}
-        	{<NBAR><IN><NBAR>}  # Above, connected with in/of/etc...
+        	{<NBAR><IN><NBAR>}
+        	{<NBAR>} # Above, connected with in/of/etc...
 """
 
 from nltk.corpus import stopwords
@@ -37,8 +40,7 @@ def normalise(word):
 
 def acceptable_word(word):
     """Checks conditions for acceptable word: length, stopword."""
-    accepted = bool(2 <= len(word) <= 40
-        and word.lower() not in stopwords)
+    accepted = bool(2 <= len(word) <= 40)
     return accepted
 
 def get_terms(tree):
@@ -52,8 +54,9 @@ def processLanguage(query):
 	chunker = nltk.RegexpParser(grammar)
         tokenized = nltk.word_tokenize(query)
         tagged = nltk.pos_tag(tokenized)
-	    
+	print tagged
 	tree = chunker.parse(tagged)
+	tree.draw()
    	terms = get_terms(tree)
 
 	for term in terms:
