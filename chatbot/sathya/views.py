@@ -1,5 +1,7 @@
 from django.http import HttpResponse
+from queryParser import processLanguage
 import os
+import wikipedia
 
 def index(request):
     file = open(os.getcwd()+'/sathya/chatPage.html','r')
@@ -7,4 +9,9 @@ def index(request):
 
 def ask(request):
     question = request.GET.get('q', '')
-    return HttpResponse(question)
+    return HttpResponse(answer(question))
+
+def answer(ques):
+    ques = " ".join(processLanguage(ques))
+    title = wikipedia.search(ques)
+    return wikipedia.summary(title, sentences=3)

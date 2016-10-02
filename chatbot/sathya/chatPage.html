@@ -6,7 +6,7 @@
   <script type="text/javascript" src="../static/js/jquery-3.1.1.min.js"></script>
   <script>
 	$(document).ready( function () {
-		$("#ask").click( talkToServer() );
+		$("#ask").click( function() {talkToServer();} );
 		$("#query").keydown( function(e) {if(e.which == 13) { talkToServer();}}	       );
 	});
 	function talkToServer() {
@@ -16,13 +16,12 @@
 			data : {"q" : query},
 			async : false,
 			success : function(data) {
-				$("#convo").append(data);
+				$("#convo").append($("p")).append(data);
 				$("#query").val("");
 			}
 	});
 	}
   </script>
-
  </head>
  <body>
  	<div style="margin-bottom:20px;height:90%">

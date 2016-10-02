@@ -59,13 +59,8 @@ def processLanguage(query):
 	for term in terms:
     	   for word in term:
         	words.append(word)
-            
+           
         return words
 
     except Exception, e:
         print str(e)
-        
-
-
-words = processLanguage(contentArray[3])
-print words
