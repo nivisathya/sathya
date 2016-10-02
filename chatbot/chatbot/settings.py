@@ -88,3 +88,5 @@ STATICFILES_DIRS = ( os.path.join(BASE_DIR, "sathya/static"),
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder')
