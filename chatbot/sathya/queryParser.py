@@ -56,7 +56,6 @@ def processLanguage(query):
         tagged = nltk.pos_tag(tokenized)
 	print tagged
 	tree = chunker.parse(tagged)
-	tree.draw()
    	terms = get_terms(tree)
 
 	for term in terms:
