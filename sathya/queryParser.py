@@ -25,8 +25,6 @@ grammar = r"""
         	{<NBAR>} # Above, connected with in/of/etc...
 """
 
-from nltk.corpus import stopwords
-stopwords = stopwords.words('english')
 
 def leaves(tree):
     """Finds NP (nounphrase) leaf nodes of a chunk tree."""
