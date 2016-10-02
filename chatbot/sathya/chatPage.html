@@ -7,7 +7,7 @@
   <script>
 	$(document).ready( function () {
 		$("#ask").click( talkToServer() );
-		$("#query").keydown( function(e) {if(e.which == 13) { talkToServer();}});
+		$("#query").keydown( function(e) {if(e.which == 13) { talkToServer();}}	       );
 	});
 	function talkToServer() {
 		var query = $("#query").val();
@@ -22,6 +22,7 @@
 	});
 	}
   </script>
+
  </head>
  <body>
  	<div style="margin-bottom:20px;height:90%">
