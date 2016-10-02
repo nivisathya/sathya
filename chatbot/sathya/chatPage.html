@@ -16,7 +16,7 @@
 			data : {"q" : query},
 			async : false,
 			success : function(data) {
-				$("#convo").append($("p")).append(data);
+				$("#convo").append("<p>"+data+"</p>");
 				$("#query").val("");
 			}
 	});
