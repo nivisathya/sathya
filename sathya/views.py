@@ -12,6 +12,9 @@ def ask(request):
     return HttpResponse(answer(question))
 
 def answer(ques):
-    ques = " ".join(processLanguage(ques))
-    title = wikipedia.search(ques)
-    return wikipedia.summary(title[0], sentences=3)
+    try:
+    	ques = " ".join(processLanguage(ques))
+	title = wikipedia.search(ques)
+    	return wikipedia.summary(title[0], sentences=3)
+    except Exception as err:
+	print(err)
