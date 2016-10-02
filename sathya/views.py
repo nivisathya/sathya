@@ -14,4 +14,4 @@ def ask(request):
 def answer(ques):
     ques = " ".join(processLanguage(ques))
     title = wikipedia.search(ques)
-    return wikipedia.summary(title, sentences=3)
+    return wikipedia.summary(title[0], sentences=3)
