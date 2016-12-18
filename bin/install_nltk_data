@@ -19,4 +19,6 @@ ls
 # Delete all of the zip files
 find . -name "*.zip" -type f -delete
 
+ls
+
 echo "-----> Finished nltk data installation"
