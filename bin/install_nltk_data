@@ -6,6 +6,8 @@ echo "-----> Starting nltk data installation"
 
 # Assumes NLTK_DATA environment variable is already set
 # $ heroku config:set NLTK_DATA='/app/nltk_data'
+mkdir /app/nltk_data
+
 
 # Install the nltk data
 python -m nltk.downloader averaged_perceptron_tagger
