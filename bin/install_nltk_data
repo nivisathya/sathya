@@ -10,7 +10,7 @@ echo "-----> Starting nltk data installation"
 
 # Install the nltk data
 python -m nltk.downloader averaged_perceptron_tagger
-python -m nltk.downloader -d /usr/local/share/nltk_data punkt
+python -m nltk.downloader -d /app/nltk_data punkt
 
 
 # Open the NLTK_DATA directory
