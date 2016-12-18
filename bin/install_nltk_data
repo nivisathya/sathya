@@ -14,11 +14,9 @@ python -m nltk.downloader punkt
 
 # Open the NLTK_DATA directory
 cd ${NLTK_DATA}
-ls
 
 # Delete all of the zip files
 find . -name "*.zip" -type f -delete
 
-ls
 
 echo "-----> Finished nltk data installation"
